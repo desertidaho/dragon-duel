@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/dragon-duel.vue'
+import DragonDuel from './views/DragonDuel.vue'
+//import Dragon from './components/Dragon.vue'
+//import Champion from './components/Champion.vue'
 
 Vue.use(Router)
 
@@ -8,8 +10,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'dragonDuel',
-      component: dragonDuel
+      name: 'DragonDuel',
+      component: DragonDuel,
+      props: true
     }
   ]
 })
