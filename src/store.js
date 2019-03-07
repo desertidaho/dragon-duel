@@ -27,6 +27,9 @@ export default new Vuex.Store({
     setChampions(state, data) {
       state.champions = data
     },
+    setActiveChampion(state, data) {
+      state.activeChampion = data
+    },
     setGame(state, data) {
       state.game = data
     }

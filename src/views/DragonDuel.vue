@@ -1,7 +1,8 @@
 <template>
   <div class="container-fluid">
     <div class="dragon-duel row">
-      <h1 class="col-12 mt-4 text-center mb-5">Dragons <img alt="Vue logo" src="../assets/logo.png">'s Champions</h1>
+      <h1 class="col-12 mt-4 text-center mb-5">Dragons <img id="vue-logo" alt="Vue logo" src="../assets/logo.png">'s
+        Champions</h1>
       <div class="row">
         <div class="col-12">
           <button class="btn btn-lg shadow btn-outline-dark mb-5" @click="startGame"
@@ -69,8 +70,8 @@
   }
 </script>
 
-<style>
-  img {
+<style scoped>
+  #vue-logo {
     height: 1.5rem;
     width: auto;
   }
