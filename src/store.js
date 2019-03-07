@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import router from './router';
 
 let _api = axios.create({
   baseURL: 'https://dragon-duel.herokuapp.com/api'
@@ -13,7 +14,8 @@ export default new Vuex.Store({
     dragons: [],
     activeDragon: {},
     champions: [],
-    activeChampion: {}
+    activeChampion: {},
+    game: {}
   },
   mutations: {
     setDragons(state, data) {
@@ -24,6 +26,9 @@ export default new Vuex.Store({
     },
     setChampions(state, data) {
       state.champions = data
+    },
+    setGame(state, data) {
+      state.game = data
     }
   },
   actions: {
@@ -55,10 +60,11 @@ export default new Vuex.Store({
     },
 
     //game
-    getGames({ commit, dispatch }) {
-      _api.get('/games')
+    startGame({ commit, dispatch }, payload) {
+      _api.post('/games', payload)
         .then(res => {
-          commit('setGames', res.data.data)
+          commit('setGame', res.data.game)
+          router.push({ name: 'Game', params: { gameId: res.data.game._id } })
         })
     }
 
